@@ -1,0 +1,122 @@
+%define rel		1
+%define	name		libwpd
+%define	version		0.8.9
+%define	release		%mkrel %{rel} 
+%define api_version	0.8
+%define lib_major	8
+%define lib_name	%mklibname wpd- %{api_version} %{lib_major}
+ 
+
+
+Summary:	Libwpd is a library for reading/writing WordPerfect files
+Name:		%{name}
+Version:	%{version}
+Release:	%{release}
+License:	LGPL
+Group:		Office
+URL:		http://libwpd.sourceforge.net/
+Source:		%{name}-%{version}.tar.bz2
+Patch0:		%{name}-0.8.8-stability.patch
+Patch1:		%{name}-0.8.8-typedetect.patch
+
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	glib2-devel
+BuildRequires:	libgsl-devel
+BuildRequires:	libgsf-devel
+BuildRequires:	doxygen
+
+%description
+Libwpd is a library for reading/writing WordPerfect files.
+It is designed to be used by another program (e.g.: a word
+processor) as an in-process component.
+It supports fileimport of all versions of WordPerfect.
+
+%package -n	%{name}-tools
+Summary:	Tools to transform Wordperfect files to html or text
+Group:		Office
+
+%description -n %{name}-tools
+Tools to transform Wordperfect files to html or text.
+It supports fileimport of all versions of WordPerfect.
+
+%package -n	%{lib_name}
+Summary:	Libwpd is a library for reading/writing WordPerfect files
+Group:		Office
+Provides:	%{name} = %{version}-%{release}
+
+%description -n	%{lib_name}
+Libwpd is a library for reading/writing WordPerfect files.
+It is designed to be used by another program (e.g.: a word
+processor) as an in-process component.
+It supports fileimport of all versions of WordPerfect.
+
+%package -n	%{lib_name}-devel
+Summary:	Headers and development files for libwpd
+Group:		Development/Other
+Requires:	%{lib_name} = %{version}
+Provides:	%{name}-devel = %{version}-%{release}
+Provides:	%{name}-%{api_version}-devel
+Provides:	libwpd0-devel
+Obsoletes:	libwpd0-devel
+
+%description -n	%{lib_name}-devel
+Headers and development files for libwpd.
+
+%prep
+%setup -q
+#%patch0 -p1 -b .stability
+#%patch1 -p1 -b .typedetect
+
+%build
+%configure2_5x
+%make
+
+%install
+rm -rf $RPM_BUILD_ROOT
+%makeinstall
+
+%post -n %{lib_name} -p /sbin/ldconfig
+ 
+
+%postun -n %{lib_name} -p /sbin/ldconfig
+ 
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files -n %{name}-tools
+%defattr(-,root,root)
+%{_bindir}/*
+
+%files -n %{lib_name}
+%defattr(-,root,root)
+%{_libdir}/libwpd-%{api_version}*.so.*
+%{_libdir}/libwpd-stream-%{api_version}*.so.*
+%doc CHANGES COPYING INSTALL README TODO
+
+%files -n %{lib_name}-devel
+%defattr(-,root,root)
+%{_libdir}/pkgconfig/libwpd-%{api_version}.pc
+%{_libdir}/pkgconfig/libwpd-stream-%{api_version}.pc
+%{_libdir}/libwpd-%{api_version}*.so
+%{_libdir}/libwpd-%{api_version}*.la
+%{_libdir}/libwpd-stream-%{api_version}*.so
+%{_libdir}/libwpd-stream-%{api_version}*.la
+%dir %{_includedir}/libwpd-%{api_version}
+%dir %{_includedir}/libwpd-%{api_version}/libwpd
+%{_includedir}/libwpd-%{api_version}/libwpd/*
+
+%doc %_docdir/libwpd-%{version}/*.png
+%doc %_docdir/libwpd-%{version}/html/*.html
+%doc %_docdir/libwpd-%{version}/html/*.png
+%doc %_docdir/libwpd-%{version}/html/*.css
+%doc %_docdir/libwpd-%{version}/CHANGES
+%doc %_docdir/libwpd-%{version}/COPYING
+%doc %_docdir/libwpd-%{version}/CREDITS
+%doc %_docdir/libwpd-%{version}/HACKING
+%doc %_docdir/libwpd-%{version}/INSTALL
+%doc %_docdir/libwpd-%{version}/README
+%doc %_docdir/libwpd-%{version}/TODO
+%doc %_docdir/libwpd-%{version}/libwpd.dia
+
+
