@@ -1,7 +1,6 @@
-%define rel		1
-%define	name		libwpd
-%define	version		0.8.9
-%define	release		%mkrel %{rel} 
+%define name		libwpd
+%define version		0.8.11
+%define release		%mkrel 1
 %define api_version	0.8
 %define lib_major	8
 %define lib_name	%mklibname wpd- %{api_version} %{lib_major}
@@ -15,7 +14,7 @@ Release:	%{release}
 License:	LGPL
 Group:		Office
 URL:		http://libwpd.sourceforge.net/
-Source:		%{name}-%{version}.tar.bz2
+Source:		%{name}-%{version}.tar.gz
 Patch0:		%{name}-0.8.8-stability.patch
 Patch1:		%{name}-0.8.8-typedetect.patch
 
