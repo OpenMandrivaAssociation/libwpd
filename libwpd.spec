@@ -1,10 +1,10 @@
 %define name		libwpd
-%define version		0.8.11
+%define version		0.8.12
 %define release		%mkrel 1
 %define api_version	0.8
 %define lib_major	8
-%define lib_name	%mklibname wpd- %{api_version} %{lib_major}
- 
+%define lib_name	%mklibname wpd %{api_version} %{lib_major}
+%define develname	%mklibname -d wpd 
 
 
 Summary:	Libwpd is a library for reading/writing WordPerfect files
@@ -14,7 +14,7 @@ Release:	%{release}
 License:	LGPL
 Group:		Office
 URL:		http://libwpd.sourceforge.net/
-Source:		%{name}-%{version}.tar.gz
+Source:		http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-0.8.8-stability.patch
 Patch1:		%{name}-0.8.8-typedetect.patch
 
@@ -42,6 +42,7 @@ It supports fileimport of all versions of WordPerfect.
 Summary:	Libwpd is a library for reading/writing WordPerfect files
 Group:		Office
 Provides:	%{name} = %{version}-%{release}
+Obsoletes:	%mklibname wpd- 0.8 8
 
 %description -n	%{lib_name}
 Libwpd is a library for reading/writing WordPerfect files.
@@ -49,16 +50,16 @@ It is designed to be used by another program (e.g.: a word
 processor) as an in-process component.
 It supports fileimport of all versions of WordPerfect.
 
-%package -n	%{lib_name}-devel
+%package -n	%{develname}
 Summary:	Headers and development files for libwpd
 Group:		Development/Other
 Requires:	%{lib_name} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
-Provides:	%{name}-%{api_version}-devel
-Provides:	libwpd0-devel
+Provides:	%{name}-%{api_version}-devel = %{version}-%{release}
 Obsoletes:	libwpd0-devel
+Obsoletes:	%mklibname -d wpd- 0.8 8
 
-%description -n	%{lib_name}-devel
+%description -n	%{develname}
 Headers and development files for libwpd.
 
 %prep
@@ -93,7 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libwpd-stream-%{api_version}*.so.*
 %doc CHANGES COPYING INSTALL README TODO
 
-%files -n %{lib_name}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %{_libdir}/pkgconfig/libwpd-%{api_version}.pc
 %{_libdir}/pkgconfig/libwpd-stream-%{api_version}.pc
