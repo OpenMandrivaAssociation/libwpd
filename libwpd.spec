@@ -18,6 +18,7 @@ Source:		http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.ta
 Patch0:		%{name}-0.8.8-stability.patch
 Patch1:		%{name}-0.8.8-typedetect.patch
 
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	glib2-devel
 BuildRequires:	libgsl-devel
 BuildRequires:	libgsf-devel
