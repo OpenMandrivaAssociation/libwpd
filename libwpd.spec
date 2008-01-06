@@ -1,5 +1,5 @@
 %define name		libwpd
-%define version		0.8.12
+%define version		0.8.13
 %define release		%mkrel 1
 %define api_version	0.8
 %define lib_major	8
@@ -11,7 +11,7 @@ Summary:	Libwpd is a library for reading/writing WordPerfect files
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
-License:	LGPL
+License:	LGPLv2+
 Group:		Office
 URL:		http://libwpd.sourceforge.net/
 Source:		http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
