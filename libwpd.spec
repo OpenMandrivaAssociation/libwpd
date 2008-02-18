@@ -7,7 +7,7 @@
 %define develname	%mklibname -d wpd 
 
 
-Summary:	Libwpd is a library for reading/writing WordPerfect files
+Summary:	Library for reading/writing WordPerfect files
 Name:		%{name}
 Version:	%{version}
 Release:	%{release}
@@ -39,7 +39,7 @@ Tools to transform Wordperfect files to html or text.
 It supports fileimport of all versions of WordPerfect.
 
 %package -n	%{lib_name}
-Summary:	Libwpd is a library for reading/writing WordPerfect files
+Summary:	Library for reading/writing WordPerfect files
 Group:		Office
 Provides:	%{name} = %{version}-%{release}
 Obsoletes:	%mklibname wpd- 0.8 8
