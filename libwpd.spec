@@ -1,6 +1,6 @@
 %define name		libwpd
 %define version		0.8.13
-%define release		%mkrel 2
+%define release		%mkrel 3
 %define api_version	0.8
 %define lib_major	8
 %define lib_name	%mklibname wpd %{api_version} %{lib_major}
@@ -12,7 +12,7 @@ Name:		%{name}
 Version:	%{version}
 Release:	%{release}
 License:	LGPLv2+
-Group:		Office
+Group:		System/Libraries
 URL:		http://libwpd.sourceforge.net/
 Source:		http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-0.8.8-stability.patch
@@ -40,7 +40,7 @@ It supports fileimport of all versions of WordPerfect.
 
 %package -n	%{lib_name}
 Summary:	Library for reading/writing WordPerfect files
-Group:		Office
+Group:		System/Libraries
 Provides:	%{name} = %{version}-%{release}
 Obsoletes:	%mklibname wpd- 0.8 8
 
@@ -64,8 +64,6 @@ Headers and development files for libwpd.
 
 %prep
 %setup -q
-#%patch0 -p1 -b .stability
-#%patch1 -p1 -b .typedetect
 
 %build
 %configure2_5x
