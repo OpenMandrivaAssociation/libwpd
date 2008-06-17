@@ -1,6 +1,6 @@
 %define name		libwpd
 %define version		0.8.13
-%define release		%mkrel 3
+%define release		%mkrel 4
 %define api_version	0.8
 %define lib_major	8
 %define lib_name	%mklibname wpd %{api_version} %{lib_major}
