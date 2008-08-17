@@ -1,6 +1,6 @@
 %define name		libwpd
-%define version		0.8.13
-%define release		%mkrel 5
+%define version		0.8.14
+%define release		%mkrel 1
 %define api_version	0.8
 %define lib_major	8
 %define lib_name	%mklibname wpd %{api_version} %{lib_major}
@@ -14,7 +14,7 @@ Release:	%{release}
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://libwpd.sourceforge.net/
-Source:		http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+Source:		http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.8.8-stability.patch
 Patch1:		%{name}-0.8.8-typedetect.patch
 
