@@ -1,8 +1,8 @@
 %define name		libwpd
-%define version		0.8.14
-%define release		%mkrel 5
-%define api_version	0.8
-%define lib_major	8
+%define version		0.9.1
+%define release		%mkrel 1
+%define api_version	0.9
+%define lib_major	9
 %define lib_name	%mklibname wpd %{api_version} %{lib_major}
 %define develname	%mklibname -d wpd 
 
@@ -17,11 +17,8 @@ URL:		http://libwpd.sourceforge.net/
 Source:		http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-0.8.8-stability.patch
 Patch1:		%{name}-0.8.8-typedetect.patch
-
+Patch2:		libwpd-gcc4.6.0.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	glib2-devel
-BuildRequires:	libgsl-devel
-BuildRequires:	libgsf-devel
 BuildRequires:	doxygen
 
 %description
@@ -64,6 +61,7 @@ Headers and development files for libwpd.
 
 %prep
 %setup -q
+%patch2 -p1
 
 %build
 %configure2_5x
@@ -71,7 +69,7 @@ Headers and development files for libwpd.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%makeinstall
+%makeinstall_std
 
 %if %mdkversion < 200900
 %post -n %{lib_name} -p /sbin/ldconfig
@@ -94,7 +92,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_libdir}/libwpd-%{api_version}*.so.*
 %{_libdir}/libwpd-stream-%{api_version}*.so.*
-%doc CHANGES COPYING INSTALL README TODO
+%doc ChangeLog COPYING INSTALL README TODO
 
 %files -n %{develname}
 %defattr(-,root,root)
@@ -104,21 +102,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libwpd-%{api_version}*.la
 %{_libdir}/libwpd-stream-%{api_version}*.so
 %{_libdir}/libwpd-stream-%{api_version}*.la
-%dir %{_includedir}/libwpd-%{api_version}
-%dir %{_includedir}/libwpd-%{api_version}/libwpd
-%{_includedir}/libwpd-%{api_version}/libwpd/*
-
-%doc %_docdir/libwpd-%{version}/*.png
-%doc %_docdir/libwpd-%{version}/html/*.html
-%doc %_docdir/libwpd-%{version}/html/*.png
-%doc %_docdir/libwpd-%{version}/html/*.css
-%doc %_docdir/libwpd-%{version}/CHANGES
-%doc %_docdir/libwpd-%{version}/COPYING
-%doc %_docdir/libwpd-%{version}/CREDITS
-%doc %_docdir/libwpd-%{version}/HACKING
-%doc %_docdir/libwpd-%{version}/INSTALL
-%doc %_docdir/libwpd-%{version}/README
-%doc %_docdir/libwpd-%{version}/TODO
-%doc %_docdir/libwpd-%{version}/libwpd.dia
-
-
+%{_includedir}/libwpd-%{api_version}
+%doc %{_datadir}/doc/libwpd
