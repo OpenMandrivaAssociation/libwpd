@@ -39,7 +39,6 @@ It supports fileimport of all versions of WordPerfect.
 Summary:	Library for reading/writing WordPerfect files
 Group:		System/Libraries
 Provides:	%{name} = %{version}-%{release}
-Obsoletes:	%mklibname wpd- 0.8 8
 
 %description -n	%{lib_name}
 Libwpd is a library for reading/writing WordPerfect files.
