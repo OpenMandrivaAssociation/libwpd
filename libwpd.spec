@@ -1,5 +1,5 @@
 %define name		libwpd
-%define version		0.9.1
+%define version		0.9.2
 %define release		%mkrel 1
 %define api_version	0.9
 %define lib_major	9
@@ -15,9 +15,6 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://libwpd.sourceforge.net/
 Source:		http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-0.8.8-stability.patch
-Patch1:		%{name}-0.8.8-typedetect.patch
-Patch2:		libwpd-gcc4.6.0.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	doxygen
 
@@ -60,7 +57,6 @@ Headers and development files for libwpd.
 
 %prep
 %setup -q
-%patch2 -p1
 
 %build
 %configure2_5x
