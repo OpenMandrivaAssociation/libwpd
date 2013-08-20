@@ -6,12 +6,12 @@
 
 Summary:	Library for reading/writing WordPerfect files
 Name:		libwpd
-Version:	0.9.6
-Release:	2
+Version:	0.9.9
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://libwpd.sourceforge.net/
-Source0:	http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.xz
+Source0:	http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
 
 BuildRequires:	doxygen
 
@@ -70,7 +70,7 @@ Headers and development files for libwpd.
 %makeinstall_std
 
 %files -n %{name}-tools
-%doc ChangeLog COPYING INSTALL README TODO
+%doc ChangeLog INSTALL README TODO
 %{_bindir}/*
 
 %files -n %{libname}
