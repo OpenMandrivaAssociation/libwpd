@@ -5,8 +5,8 @@
 
 Summary:	Library for reading/writing WordPerfect files
 Name:		libwpd
-Version:	0.10.0
-Release:	3
+Version:	0.10.1
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://libwpd.sourceforge.net/
