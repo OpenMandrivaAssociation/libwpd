@@ -5,12 +5,12 @@
 
 Summary:	Library for reading/writing WordPerfect files
 Name:		libwpd
-Version:	0.10.1
-Release:	2
+Version:	0.10.2
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://libwpd.sourceforge.net/
-Source0:	http://ovh.dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.xz
+Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
 
 BuildRequires:	doxygen
 BuildRequires:	pkgconfig(librevenge-0.0)
