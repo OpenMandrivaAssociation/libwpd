@@ -13,6 +13,7 @@ Url:		http://libwpd.sourceforge.net/
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
 
 BuildRequires:	doxygen
+BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(librevenge-0.0)
 
 %description
