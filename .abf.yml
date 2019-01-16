@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   libwpd-0.10.2.tar.xz: ad9d53e22e746b449f8a2937481e2b36766908b9
+sources:
+  libwpd-0.10.3.tar.xz: c1254f05b2318c160d836e5583c221386db50dd2
