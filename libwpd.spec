@@ -53,8 +53,10 @@ Headers and development files for libwpd.
 %setup -q
 
 %build
+%ifnarch %{riscv}
 CFLAGS="%{optflags} -Qunused-arguments" \
 CXXFLAGS="%{optflags} -Qunused-arguments" \
+%endif
 %configure
 %make
 
