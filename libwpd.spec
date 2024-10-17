@@ -9,7 +9,7 @@ Version:	0.10.3
 Release:	5
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://libwpd.sourceforge.net/
+Url:		https://libwpd.sourceforge.net/
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
 Patch0:		https://src.fedoraproject.org/rpms/libwpd/raw/rawhide/f/libwpd-gcc11.patch
 BuildRequires:	doxygen
