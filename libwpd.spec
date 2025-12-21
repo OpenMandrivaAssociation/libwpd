@@ -12,6 +12,11 @@ Group:		System/Libraries
 Url:		https://libwpd.sourceforge.net/
 Source0:	http://dev-www.libreoffice.org/src/%{name}-%{version}.tar.xz
 Patch0:		https://src.fedoraproject.org/rpms/libwpd/raw/rawhide/f/libwpd-gcc11.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	doxygen
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(librevenge-0.0)
